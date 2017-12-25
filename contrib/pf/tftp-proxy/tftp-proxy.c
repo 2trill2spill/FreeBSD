@@ -381,8 +381,7 @@ sock_ntop(struct sockaddr *sa)
 u_int16_t
 pick_proxy_port(void)
 {
-	return (IPPORT_HIFIRSTAUTO + (arc4random() %
-	    (IPPORT_HILASTAUTO - IPPORT_HIFIRSTAUTO)));
+	return (IPPORT_HIFIRSTAUTO + (arc4random_uniform((IPPORT_HILASTAUTO - IPPORT_HIFIRSTAUTO))));
 }
 
 static void

@@ -73,7 +73,7 @@ vhba_init(vhba_softc_t *vhba)
 		}
 	}
 	for (i = 8; i < MAX_LUN; i++) {
-		if ((arc4random() % i) == 0) {
+		if ((arc4random_uniform(i) == 0) {
 			vhbas.rpbitmap[i >> 3] |= (1 << (i & 0x7));
 			printf(" %d", i);
 		}

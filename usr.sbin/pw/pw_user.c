@@ -520,7 +520,7 @@ pw_password(struct userconf * cnf, char const * user, bool dryrun)
 	case P_NONE:		/* No password at all! */
 		return "";
 	case P_RANDOM:			/* Random password */
-		l = (arc4random() % 8 + 8);	/* 8 - 16 chars */
+		l = (arc4random_uniform(8) + 8);	/* 8 - 16 chars */
 		for (i = 0; i < l; i++)
 			pwbuf[i] = chars[arc4random_uniform(sizeof(chars)-1)];
 		pwbuf[i] = '\0';

@@ -115,7 +115,7 @@ static int gettemp(char *path, apr_file_t **doopen, apr_int32_t flags, apr_pool_
 
     /* Fill space with random characters */
     while (*trv == 'X') {
-        randnum = arc4random() % (sizeof(padchar) - 1);
+        randnum = arc4random_uniform((sizeof(padchar) - 1));
         *trv-- = padchar[randnum];
     }
     start = trv + 1;
